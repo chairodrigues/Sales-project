@@ -1,0 +1,188 @@
+@import "~vuetify/src/styles/tools/_functions.sass";
+
+$colors: () !default;
+
+$black-100: #1a1a1a;
+$black-200: #4d4d4d;
+$purple-500: #161544;
+$white-500: #fff;
+
+$text-black-100: $black-100;
+$text-black-200: $black-200;
+$text-purple-500: $purple-500;
+
+$body-font-family: "Open Sans" !default;
+
+h1 {
+  font-family: "Open Sans";
+  font-size: 30px;
+  letter-spacing: -1px;
+}
+
+h2 {
+  font-family: "Open Sans";
+  font-size: 25px;
+  letter-spacing: -1px;
+}
+
+h3 {
+  font-family: "Open Sans";
+  font-size: 18px;
+  letter-spacing: -1px;
+}
+h5{
+  color: var(--base, #3A5383); 
+  font-family: Open Sans;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+p {
+  font-family: "Open Sans";
+  font-size: 14px;
+}
+.textBold {
+  font-weight: bold;
+}
+#email {
+  text-transform: lowercase !important;
+}
+.divider {
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin-top: 8px;
+  background-color: $black-100;
+}
+
+.v-tabs {
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+
+.v-tab {
+  width: 250px;
+  color: chartreuse;
+}
+
+.v-data-table-header {
+  
+  height: 50px !important;
+}
+
+.v-data-table-header tr > th {
+  padding-left: 20px !important;
+}
+
+.text-start {
+  padding-left: 20px !important;
+  padding-right: 0 !important;
+}
+
+.v-tabs-slider {
+  width: 100%;
+  margin-bottom: 2px;
+}
+
+.text {
+  color: white;
+  text-align: right;
+  margin-top: 5px;
+  font-size: 10px;
+}
+
+.v-tabs-items {
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.required {
+  .v-label::after {
+    content: "*";
+    display: inline;
+    color: red;
+    padding-left: 2px;
+  }
+}
+
+.table td :hover {
+  background-color: #635964 !important;
+  color: white;
+}
+
+.table td button :hover {
+  background-color: unset !important;
+}
+
+tbody .v-input :hover {
+  background-color: unset !important;
+}
+
+.input-none-case * input {
+  text-transform: none !important;
+}
+
+.zIndex1000 {
+  z-index: 1000;
+}
+
+$btn-letter-spacing: 0px !default;
+
+$breadcrumbs-padding: 0px !default;
+
+$breadcrumbs-even-child-padding: 0px 5px !default;
+
+$data-table-regular-header-font-size: 14px !default;
+
+$date-picker-table-font-size: 13px;
+
+$date-picker-title-date-font-size: 20px;
+
+.textLimit {
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+//vuetify reset
+
+.v-input__slot::before {
+  border-image: none !important;
+}
+
+.alert {
+  position: absolute;
+  width: 500px;
+  top: 10%;
+  right: 30px;
+}
+
+.wrapper-container {
+  height: 100vh;
+  .wrapper-alert {
+    position: relative;
+    .alert {
+      bottom: 0;
+    }
+  }
+  .wrapper-center {
+    width: 100%;
+    max-width: 1584px;
+    margin: 0 auto;
+    > .wrapper-logo {
+      position: relative;
+      width: 50%;
+
+      > img {
+        width: 100%;
+        max-width: 600px;
+      }
+    }
+  }
+  .wrapper-footer {
+    height: 30px;
+  }
+}
