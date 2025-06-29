@@ -80,7 +80,7 @@ import validationRules from "@/mixins/validationRules.js";
 import { RouterLink } from "vue-router";
 import { createNamespacedHelpers } from "vuex";
 
-const moduleCadastro = createNamespacedHelpers("ModuleCadastro");
+const moduleProduto = createNamespacedHelpers("moduleProduto");
 
 export default {
   mixins: [validationRules],
@@ -120,7 +120,7 @@ export default {
     totalItems: 0,
   }),
   methods: {
-    ...moduleCadastro.mapActions({
+    ...moduleProduto.mapActions({
       carregarCategoria: "carregarCategoria",
       criarCategoria: "criarCategoria",
     }),

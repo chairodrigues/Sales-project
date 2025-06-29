@@ -146,7 +146,7 @@ import validationRules from "@/mixins/validationRules.js";
 import { RouterLink } from "vue-router";
 import { createNamespacedHelpers } from "vuex";
 import Breadcrumbs from "@/components/breadcrumbs.vue";
-const moduleCadastro = createNamespacedHelpers("ModuleCadastro");
+const moduleProduto = createNamespacedHelpers("moduleProduto");
 import editarCategoria from "@/components/editarCateg.vue";
 
 export default {
@@ -186,7 +186,7 @@ export default {
     totalItems: 0,
   }),
   methods: {
-    ...moduleCadastro.mapActions({
+    ...moduleProduto.mapActions({
       carregarCategoria: "carregarCategoria",
       deletarCategoria: "deletarCategoria",
     }),
