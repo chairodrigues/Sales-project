@@ -10,12 +10,26 @@ namespace ToDoList.EntityFrameworkCore
     public class ToDoListDbContext : AbpZeroDbContext<Tenant, Role, User, ToDoListDbContext>
     {
         /* Define a DbSet for each entity of the application */
-        public DbSet<Categoria> Categoria { get; set; }
-        public DbSet<Subcategoria> Subcategorias { get; set; }
+        public DbSet<Produto> Produto { get; set; } 
+        public DbSet<CarrinhoProduto> CarrinhoProdutos { get; set; }  
+        public DbSet<CarrinhoSimulado> CarrinhoSimulados { get; set; } 
+      
 
         public ToDoListDbContext(DbContextOptions<ToDoListDbContext> options)
             : base(options)
         {
+
+        }
+        protected override void OnModelCreating (ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating (modelBuilder);
+            modelBuilder.Entity<CarrinhoSimulado> ()
+                .HasOne(x => x.Produto)
+                .WithOne()
+                .HasForeignKey<CarrinhoSimulado>(x => x.ProdutoId)
+                .OnDelete(DeleteBehavior.Restrict);
+
         }
     }
+
 }

@@ -15,55 +15,54 @@ using Abp.Linq.Extensions;
 
 namespace ToDoList.Lista
 {
-    public class CategoriaAppService : ApplicationService, ICategoriaAppService
+    public class ProdutoAppService : ApplicationService, IProdutoAppService
     {
-        private readonly IRepository<Categoria, long> _repository;
+        private readonly IRepository<Produto, long> _repository;
 
-        public CategoriaAppService(IRepository<Categoria, long> repository)
+        public ProdutoAppService(IRepository<Produto, long> repository)
         {
             _repository = repository;
         }
 
-        public CategoriaDto Create(CategoriaDto input)
+        public ProdutoDto Create(ProdutoDto input)
         {
-            var categoria = ObjectMapper.Map<Categoria>(input);
-            categoria = _repository.Insert(categoria);
+            var Produto = ObjectMapper.Map<Produto>(input);
+            Produto = _repository.Insert(Produto);
 
-            return ObjectMapper.Map<CategoriaDto>(categoria);
+            return ObjectMapper.Map<ProdutoDto>(Produto);
         }
 
         [HttpPatch]
-        public CategoriaDto Update(UpdateCategoriaDto input)
+        public ProdutoDto Update(UpdateProdutoDto input)
         {
-            var categoria = ObjectMapper.Map<Categoria>(input);
-            categoria = _repository.Update(categoria);
+            var Produto = ObjectMapper.Map<Produto>(input);
+            Produto = _repository.Update(Produto);
 
-            return ObjectMapper.Map<CategoriaDto>(categoria);
+            return ObjectMapper.Map<ProdutoDto>(Produto);
         }
 
-        public PagedResultDto<CategoriaDto> GetAll(RequestDto input)
+        public PagedResultDto<ProdutoDto> GetAll(RequestDto input)
         {
-            var queryCategoria = GetQuery(input);
-            int totalCount = queryCategoria.Count();
-            var categoria = queryCategoria
+            var queryProduto = GetQuery(input);
+            int totalCount = queryProduto.Count();
+            var Produto = queryProduto
                 .Skip(input.Skip)
                 .Take(input.Take)
                 .ToList();
 
-            return new PagedResultDto<CategoriaDto>
+            return new PagedResultDto<ProdutoDto>
             {
                 TotalCount = totalCount,
-                Items = ObjectMapper.Map<List<CategoriaDto>>(categoria)
+                Items = ObjectMapper.Map<List<ProdutoDto>>(Produto)
             };
         }
 
-        private IQueryable<Categoria> GetQuery(RequestDto request)
+        private IQueryable<Produto> GetQuery(RequestDto request)
         {
             int.TryParse(request.Search, out var idSearch);
 
             var query = _repository
-                .GetAll()
-                .Include(x => x.Subcategorias)
+                .GetAll() 
                 .WhereIf(!string.IsNullOrEmpty(request.Search),
                     x => x.Nome.ToUpper().Contains(request.Search.ToUpper()) ||
                     idSearch != 0 && x.Id.ToString().Contains(idSearch.ToString()));
@@ -80,7 +79,7 @@ namespace ToDoList.Lista
                 else
                     query = query.OrderBy(x => x.Id);
             }
-            else if (request.OrderBy.Equals("Categorias", StringComparison.OrdinalIgnoreCase))
+            else if (request.OrderBy.Equals("Produtos", StringComparison.OrdinalIgnoreCase))
             {
                 if (request.Desc)
                     query = query.OrderByDescending(x => x.Nome);
@@ -99,11 +98,11 @@ namespace ToDoList.Lista
 
         }
 
-        public CategoriaDto GetCategoriaById(EntityDto<long> input)
+        public ProdutoDto GetProdutoById(EntityDto<long> input)
         {
-            var categoria = _repository.Get(input.Id);
+            var Produto = _repository.Get(input.Id);
 
-            return ObjectMapper.Map<CategoriaDto>(categoria);
+            return ObjectMapper.Map<ProdutoDto>(Produto);
         }
 
         public void Delete(EntityDto<long> input)

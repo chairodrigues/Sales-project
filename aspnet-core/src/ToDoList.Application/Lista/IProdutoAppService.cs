@@ -9,12 +9,12 @@ using ToDoList.Lista.DTOs;
 
 namespace ToDoList.Lista
 {
-    public interface ISubcategoriaAppService : IApplicationService
+    public interface IProdutoAppService : IApplicationService
     {
 
-        PagedResultDto<SubcategoriaDto> GetAll(GetAllSubcategoriaDto input);
-        SubcategoriaDto Create(SubcategoriaDto input);
-        SubcategoriaDto Update(SubcategoriaDto input);
+        PagedResultDto<ProdutoDto> GetAll(RequestDto input);
+        ProdutoDto Create(ProdutoDto input);
+        ProdutoDto Update(UpdateProdutoDto input);
         void Delete(EntityDto<long> input);
     }
 }

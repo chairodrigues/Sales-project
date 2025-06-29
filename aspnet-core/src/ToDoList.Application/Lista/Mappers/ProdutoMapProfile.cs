@@ -10,13 +10,11 @@ using ToDoList.Lista.DTOs;
 
 namespace ToDoList.Lista.Mappers
 {
-    public class CategoriaMapProfile : Profile
+    public class ProdutoMapProfile : Profile
     {
-        public CategoriaMapProfile()
+        public ProdutoMapProfile()
         {
-            CreateMap<Categoria, CategoriaDto>()
-                .ForMember(x => x.SubcategoriasCount, y =>
-                    y.MapFrom(x => x.Subcategorias != null ? x.Subcategorias.Count : 0));
+            CreateMap<Produto, ProdutoDto> ();
 
         }
 

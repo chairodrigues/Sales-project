@@ -75,7 +75,7 @@ import { RouterLink } from "vue-router";
 
 import { createNamespacedHelpers } from "vuex";
 
-const moduleCadastro = createNamespacedHelpers("ModuleCadastro");
+const moduleProduto = createNamespacedHelpers("moduleProduto");
 
 export default {
   mixins: [validationRules],
@@ -117,7 +117,7 @@ export default {
     editedItem: {},
   }),
   methods: {
-    ...moduleCadastro.mapActions({
+    ...moduleProduto.mapActions({
       getCategoriaById: "getCategoriaById",
       carregarCategoria: "carregarCategoria",
       atualizarCategoria: "atualizarCategoria",

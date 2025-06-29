@@ -3,7 +3,7 @@ import util from "@/lib/util";
 import actionWrapper from "@/lib/helpers/action-wrapper";
 
 export default {
-  namespaced: "ModuleCadastro",
+  namespaced: "moduleProduto",
   state: {
     application: null,
   },

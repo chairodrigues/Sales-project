@@ -154,7 +154,7 @@ import { RouterLink } from "vue-router";
 import { createNamespacedHelpers } from "vuex";
 import Breadcrumbs from "@/components/breadcrumbs.vue";
 const moduleSubcategoria = createNamespacedHelpers("ModuleSubcategoria");
-const moduleCadastro = createNamespacedHelpers("ModuleCadastro");
+const moduleProduto = createNamespacedHelpers("moduleProduto");
 
 export default {
   props: {
